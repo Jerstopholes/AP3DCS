@@ -127,8 +127,6 @@ func _ready():
 		# Tell the user what went wrong
 		printerr("NO PLAYER ASSIGNED!")
 		printerr("Please make sure you assign a player for the _camera to follow.")
-		# Force a crash
-		get_tree().quit()
 	
 	# Assign the SpringArm properties
 	_springarm.spring_length = _distance_array[0] 

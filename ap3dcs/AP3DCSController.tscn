@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://scenes/systems/camera/Camera.gd" type="Script" id=1]
-[ext_resource path="res://scenes/systems/camera/CameraInput.gd" type="Script" id=2]
-[ext_resource path="res://scenes/systems/camera/3DDistanceMarker.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ap3dcs/CameraInput.gd" type="Script" id=1]
+[ext_resource path="res://ap3dcs/Camera.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape" id=1]
 height = 1.61749
@@ -21,11 +20,11 @@ emission_energy = 1.0
 emission_operator = 0
 emission_on_uv2 = false
 
-[node name="Camera" type="Spatial"]
-script = ExtResource( 1 )
+[node name="AP3DCSController" type="Spatial"]
+script = ExtResource( 2 )
 
 [node name="CameraInput" type="Node" parent="."]
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 __meta__ = {
 "_editor_description_": "Use the default inputs, or specify your own by overriding the variables exported here. 
 "
@@ -36,14 +35,14 @@ __meta__ = {
 "_editor_description_": "These markers are used to visually adjust the different distances you want the camera to be able to use."
 }
 
-[node name="1" parent="DistanceMarkers" instance=ExtResource( 3 )]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 2 )
+[node name="1" type="Position3D" parent="DistanceMarkers"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2 )
 
-[node name="2" parent="DistanceMarkers" instance=ExtResource( 3 )]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 5 )
+[node name="2" type="Position3D" parent="DistanceMarkers"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5 )
 
-[node name="3" parent="DistanceMarkers" instance=ExtResource( 3 )]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 8 )
+[node name="3" type="Position3D" parent="DistanceMarkers"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8 )
 
 [node name="WallDetector" type="Area" parent="."]
 __meta__ = {
